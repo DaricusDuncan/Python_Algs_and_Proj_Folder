@@ -10,13 +10,16 @@ class Node(object):
 class LinkedList(object):
     def __init__(self,head = None):
         self.head = head
+        self.size = 0
 
     def prepend(self,data):
         newNode = Node(data);
         newNode.next = self.head
         self.head = newNode
+        self.size += 1
 
     def append(self,data):
+        self.size += 1
 
         if not (self.head):
             newNode = Node(data)
@@ -26,6 +29,10 @@ class LinkedList(object):
             while(current.next != None):
                 current = current.next
             current.next = Node(data)
+
+    def getSize(self):
+
+        return (self.size)
             
 
     
