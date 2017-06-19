@@ -64,16 +64,22 @@ class LinkedList(object):
         elif(self.size == 2):
             if(temp.data == temp2.data):
                 temp.next = temp.next.next
+                self.size -= 1
         else:
+ #           temp = self.head
+ #           temp2 = self.head.next
             
-            while not (temp):
-                temp2 = temp.next
-                while not (temp2):
-                    if (temp.data == temp2.data):
-                        temp.next = temp.next.next
-                    
-                temp2 = temp2.next
-            temp = temp.next
+            while (temp):
+                #print("Temp1: " + str(temp.data))
+                temp2 = temp
+                while (temp2.next):
+                    #print("Temp2: " + str(temp2.data))
+                    if (temp.data == temp2.next.data):
+                        temp2.next = temp2.next.next
+                        self.size -= 1
+                    else:
+                       temp2 = temp2.next
+                temp = temp.next
             
             
         
