@@ -80,6 +80,18 @@ class LinkedList(object):
                     else:
                        temp2 = temp2.next
                 temp = temp.next
+                
+
+    def findKthElement(self,position):
+        count = 0
+        self.position = position
+        pointer = self.head
+
+        while count != (position-1):
+            print(str(pointer.data))
+            pointer = pointer.next
+            count += 1
+        
             
             
         
@@ -103,6 +115,12 @@ linked.append(4)
 linked.append(2)
 linked.append(3)
 linked.append(4)
+linked.append(2)
+linked.append(3)
+linked.append(6)
+linked.append(3)
+linked.append(2)
+linked.append(1)
 
 
 # 1 2 3 4
