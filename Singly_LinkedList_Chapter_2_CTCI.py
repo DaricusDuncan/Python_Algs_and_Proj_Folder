@@ -8,8 +8,9 @@ class Node(object):
 
 
 class LinkedList(object):
-    def __init__(self,head = None):
+    def __init__(self,head = None,tail = None):
         self.head = head
+        self.tail = tail
         self.size = 0
 
     def prepend(self,data):
@@ -52,7 +53,7 @@ class LinkedList(object):
         self.size -= 1
 
 
-    def removeDuplicates(self):
+    def removeDuplicates(self): #Time complexity O(N^2)
         temp = self.head
         temp2 = self.head.next
         count = 0
@@ -66,20 +67,37 @@ class LinkedList(object):
                 temp.next = temp.next.next
                 self.size -= 1
         else:
- #           temp = self.head
- #           temp2 = self.head.next
             
             while (temp):
-                #print("Temp1: " + str(temp.data))
                 temp2 = temp
                 while (temp2.next):
-                    #print("Temp2: " + str(temp2.data))
                     if (temp.data == temp2.next.data):
                         temp2.next = temp2.next.next
                         self.size -= 1
                     else:
                        temp2 = temp2.next
                 temp = temp.next
+
+    def removeDuplicatesFaster(self): #Time complexity O(N)
+        LinkedListSet = set([])
+        current = self.head
+        while(current.next is not None):
+            LinkedListSet.add(current.data)
+            print(LinkedListSet)
+            current = current.next
+##            if (current.data in LinkedListSet):
+##                current.next = current.next.next
+##                current = current.next
+##                print(LinkedListSet)
+##            
+##                self.size -= 1
+##            else:
+##                LinkedListSet.add(current.data)
+##                current = current.next
+            
+            
+            
+            
                 
 
     def findKthElement(self,position):
