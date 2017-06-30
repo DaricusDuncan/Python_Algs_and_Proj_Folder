@@ -53,7 +53,7 @@ class LinkedList(object):
         self.size -= 1
 
 
-    def removeDuplicates(self): #Time complexity O(N^2)
+    def removeDuplicatesWithoutBuffer(self): #Time complexity O(N^2)
         temp = self.head
         temp2 = self.head.next
         count = 0
@@ -78,22 +78,20 @@ class LinkedList(object):
                        temp2 = temp2.next
                 temp = temp.next
 
-    def removeDuplicatesFaster(self): #Time complexity O(N)
+    def removeDuplicatesWithBuffer(self): #Time complexity O(N)
         LinkedListSet = set([])
         current = self.head
         while(current.next is not None):
-            LinkedListSet.add(current.data)
-            print(LinkedListSet)
-            current = current.next
-##            if (current.data in LinkedListSet):
-##                current.next = current.next.next
-##                current = current.next
-##                print(LinkedListSet)
-##            
-##                self.size -= 1
-##            else:
-##                LinkedListSet.add(current.data)
-##                current = current.next
+            if (current.next.data in LinkedListSet):
+                current.next = current.next.next
+                current = current.next
+                print(LinkedListSet)
+            
+                self.size -= 1
+            else:
+                LinkedListSet.add(current.next.data)
+                current = current.next
+  #          current = current.next
             
             
             
