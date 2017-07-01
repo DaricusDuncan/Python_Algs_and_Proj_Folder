@@ -83,18 +83,18 @@ class LinkedList(object):
 
         past = self.head
         future = self.head.next
-        LinkedListSet.add(past.data)
+        #LinkedListSet.add(past.data)
         
         while(future is not None):
-            
+            LinkedListSet.add(past.data) 
             if(future.data in LinkedListSet):
                 future = future.next
                 past.next = future
-                LinkedListSet.add(past.data)
+#                LinkedListSet.add(past.data)
                 self.size -= 1
                 
             else:
-                LinkedListSet.add(past.data)
+#                LinkedListSet.add(past.data)
                 future = future.next
                 past = past.next
             
