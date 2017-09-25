@@ -1,3 +1,4 @@
 name = raw_input("Enter your name: ")
 print name
-print "Hello World"
+IdFlag = "NaN_"
+print IdFlag + "Hello World"
