@@ -1,4 +1,4 @@
 name = raw_input("Enter your name: ")
 print name
-IdFlag = "NaN_"
-print IdFlag + "Hello, my name is %s" {}.format(name)
+_IDFLAG = "NaN_"
+print _IDFLAG + "Hello, my name is %s" % name
